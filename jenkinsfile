@@ -17,8 +17,7 @@ pipeline{
          }
            stage('Deploy dev'){
              steps{
-                
-                
+
                 
                 sshagent(['Tomcat']) {
 
@@ -29,7 +28,7 @@ pipeline{
                 
                  	//copinig files one server to onther server we use scp command
                  	
-                 	sh "scp taget/declarative-maven-git.jar ec2-user@172.31.38.118:/opt/tomcat10/webapps"
+                 	sh "scp taget/declarative_plugin.jar ec2-user@172.31.38.118:/opt/tomcat10/webapps"
 					
 					// start tomcat
 					 sh "ssh ec2-user@172.31.38.118:/opt/tomcat10/bin/startup.sh"
