@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage('clone'){
            steps{
-            git 'https://github.com/Premchand-1/Maven_Build.git'
+            git 'https://github.com/Premchand-1/declarative-maven-git.git'
            }
         }
          stage('build'){
