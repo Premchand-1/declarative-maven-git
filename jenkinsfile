@@ -14,19 +14,6 @@ pipeline {
             sh "mvn clean package"
            }
         }
-         stage('deploy'){
-           steps{
-            sshagent(['tomcat']) {
-             
-             //stop tomcat
-             sh "ssh -o strictHostKeyChecking=no root@172.31.2.85 /opt/tomcat9/bin/shutdown.sh"
-             //copying jar file to remote tomcat
-             sh "scp /target/declarative_plugin-1.0-SNAPSHOT.jar root@172.31.2.85:/opt/tomcat9/webapps/"
-             //start tomcat
-             sh "ssh root@172.31.2.85 /opt/tomcat9/bin/startup.sh"
 
-                     } 
-           }
-        }
     }
 }  
