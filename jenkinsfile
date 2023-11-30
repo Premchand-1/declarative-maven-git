@@ -20,11 +20,11 @@ pipeline {
             sshagent(['tomcat']) {
              
              //stop tomcat
-             sh "ssh -o StrictHostKeyChecking=no ubunut@172.31.2.85 /opt/tomcat9/bin/shutdown.sh"
+             sh "ssh -o StrictHostKeyChecking=no tomcat@172.31.2.85 /opt/tomcat9/bin/shutdown.sh"
              //copying jar file to remote tomcat
-             sh "scp /target/declarative_plugin-1.0-SNAPSHOT.jar ubuntu@172.31.2.85:/opt/tomcat9/webapps/"
+             sh "scp /target/declarative_plugin-1.0-SNAPSHOT.jar tomcat@172.31.2.85:/opt/tomcat9/webapps/"
              //start tomcat
-             sh "ssh ubuntu@172.31.2.85 /opt/tomcat9/bin/startup.sh"
+             sh "ssh tomcat@172.31.2.85 /opt/tomcat9/bin/startup.sh"
 
                      } 
            }
